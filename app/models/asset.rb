@@ -6,11 +6,11 @@ class Asset < ActiveRecord::Base
 
   class << self
     def resizor_api_key
-      "VuOsmY-EDTj842VHOVgS"
+      ""
     end
     
     def resizor_endpoint
-      "http://localhost:3000"
+      ""
     end
   end
   
