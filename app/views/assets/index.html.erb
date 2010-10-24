@@ -9,7 +9,7 @@
 
 <% @assets.each do |asset| %>
   <tr>
-    <td><%= asset.name %></td>
+    <td><%= link_to asset.name, asset %></td>
     <td><%= asset.resizor_id %></td>
     <td><img src="<%= asset.url_for_size('c100x100') %>"></td>
     <td><%= link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete %></td>

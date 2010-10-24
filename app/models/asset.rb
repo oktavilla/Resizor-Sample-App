@@ -6,20 +6,20 @@ class Asset < ActiveRecord::Base
 
   class << self
     def resizor_api_key
-      ""
+      raise 'Resizor API-key is not set'
     end
     
     def resizor_endpoint
-      ""
+    "http://resizor.com"
     end
   end
   
-  def url_for_size(size)
-    "#{Asset.resizor_endpoint}/assets/#{size}/#{resizor_id}.jpg?token=#{token_for_size(size)}"
+  def url_for_size(size, format = 'jpg')
+    "#{Asset.resizor_endpoint}/assets/#{resizor_id}.#{format}?size=#{size}&token=#{token_for_size(size, format)}"
   end
   
-  def token_for_size(size)
-    Digest::SHA1.hexdigest("#{Asset.resizor_api_key}#{resizor_id}#{size}")
+  def token_for_size(size, format = 'jpg')
+    Digest::SHA1.hexdigest("#{Asset.resizor_api_key}-#{resizor_id}-#{size}-#{format}")
   end
   
 protected
