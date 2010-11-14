@@ -54,3 +54,11 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+label {
+  display:block;
+  margin:1.5em 0 .5em 0;
+  color:#000; 
+  font-weight:bold; }
+
+input[type="submit"] { margin: 1.5em 0; }
